@@ -24,7 +24,7 @@ class GoogleTests extends TestBase {
         $(byName("q")).setValue("Selenide").pressEnter(); // кнопка логина
 
         // Проверить, что Selenide появился в результатах поиска
-        $("#rso").shouldHave(text("ru.selenide.org"));
+        $("#rso").shouldHave(text("selenide.org"));
     }
 
     @Test
@@ -39,7 +39,7 @@ class GoogleTests extends TestBase {
         $(byName("q")).setValue("Selenide").pressEnter(); // кнопка логина
 
         // Проверить, что Selenide появился в результатах поиска
-        $(".search-results").shouldHave(text("ru.selenide.org"));
+        $(".search-results").shouldHave(text("selenide.org"));
     }
 
 
