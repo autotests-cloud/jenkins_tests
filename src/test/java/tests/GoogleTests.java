@@ -11,13 +11,27 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 
-class GoogleTests {
+class GoogleTests extends TestBase {
 
     @Test
-    void selenideSearchTest() {
+    void positiveSelenideSearchTest() {
+        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+
+        // Открыть google
+        open("https://google.com");
+
+        // Ввести Selenide в поиск
+        $(byName("q")).setValue("Selenide").pressEnter(); // кнопка логина
+
+        // Проверить, что Selenide появился в результатах поиска
+        $("#rso").shouldHave(text("ru.selenide.org"));
+    }
+
+    @Test
+    void negativeSelenideSearchTest() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         Configuration.headless = true;
-        
+
         // Открыть google
         open("https://google.com");
 
@@ -27,5 +41,6 @@ class GoogleTests {
         // Проверить, что Selenide появился в результатах поиска
         $(".search-results").shouldHave(text("ru.selenide.org"));
     }
+
 
 }
