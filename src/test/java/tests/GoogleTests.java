@@ -15,7 +15,8 @@ class GoogleTests {
     @Test
     void selenideSearchTest() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-
+        Configuration.headless = true;
+        
         // Открыть google
         open("https://google.com");
 
