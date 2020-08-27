@@ -29,8 +29,6 @@ class GoogleTests extends TestBase {
 
     @Test
     void negativeSelenideSearchTest() {
-        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-        Configuration.headless = true;
 
         // Открыть google
         open("https://google.com");
@@ -40,6 +38,12 @@ class GoogleTests extends TestBase {
 
         // Проверить, что Selenide появился в результатах поиска
         $(".search-results").shouldHave(text("selenide.org"));
+    }
+
+    @Test
+    void negativeJenkinsTest() {
+        // Открыть google
+        open("https://jenkins.autotests.cloud/view/QA.GURU%20examples/job/jenkins_tests/ws/build/");
     }
 
 
