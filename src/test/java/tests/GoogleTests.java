@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
@@ -15,8 +14,6 @@ class GoogleTests extends TestBase {
 
     @Test
     void positiveSelenideSearchTest() {
-        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-
         // Открыть google
         open("https://google.com");
 
@@ -29,7 +26,6 @@ class GoogleTests extends TestBase {
 
     @Test
     void negativeSelenideSearchTest() {
-
         // Открыть google
         open("https://google.com");
 
